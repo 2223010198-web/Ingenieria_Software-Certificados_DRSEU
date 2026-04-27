@@ -1,12 +1,18 @@
 package pe.edu.untels.certificadosdrsu.entities;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Entity
 @Table(name = "plantillas_pdf")
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class PlantillaPdf {
 
   @Id
@@ -42,86 +48,4 @@ public class PlantillaPdf {
   @ManyToOne
   @JoinColumn(name = "creado_por_id")
   private Usuario creadoPor;
-
-  public PlantillaPdf() {
-    this.createdAt = LocalDateTime.now();
-  }
-
-  // ===== GETTERS AND SETTERS =====
-
-  public UUID getId() {
-    return id;
-  }
-
-  public void setId(UUID id) {
-    this.id = id;
-  }
-
-  public TipoCertificado getTipoCertificado() {
-    return tipoCertificado;
-  }
-
-  public void setTipoCertificado(TipoCertificado tipoCertificado) {
-    this.tipoCertificado = tipoCertificado;
-  }
-
-  public String getNombre() {
-    return nombre;
-  }
-
-  public void setNombre(String nombre) {
-    this.nombre = nombre;
-  }
-
-  public String getArchivoPath() {
-    return archivoPath;
-  }
-
-  public void setArchivoPath(String archivoPath) {
-    this.archivoPath = archivoPath;
-  }
-
-  public String getMetodoExtraccion() {
-    return metodoExtraccion;
-  }
-
-  public void setMetodoExtraccion(String metodoExtraccion) {
-    this.metodoExtraccion = metodoExtraccion;
-  }
-
-  public String getTextoExtraido() {
-    return textoExtraido;
-  }
-
-  public void setTextoExtraido(String textoExtraido) {
-    this.textoExtraido = textoExtraido;
-  }
-
-  public Boolean getActivo() {
-    return activo;
-  }
-
-  public void setActivo(Boolean activo) {
-    this.activo = activo;
-  }
-
-  public Integer getVersion() {
-    return version;
-  }
-
-  public void setVersion(Integer version) {
-    this.version = version;
-  }
-
-  public LocalDateTime getCreatedAt() {
-    return createdAt;
-  }
-
-  public Usuario getCreadoPor() {
-    return creadoPor;
-  }
-
-  public void setCreadoPor(Usuario creadoPor) {
-    this.creadoPor = creadoPor;
-  }
 }

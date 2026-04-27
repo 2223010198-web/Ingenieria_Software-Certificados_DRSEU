@@ -1,12 +1,18 @@
 package pe.edu.untels.certificadosdrsu.entities;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Entity
 @Table(name = "tipos_certificado")
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class TipoCertificado {
 
   @Id
@@ -28,57 +34,4 @@ public class TipoCertificado {
 
   @Column(name = "created_at", nullable = false)
   private LocalDateTime createdAt;
-
-  public TipoCertificado() {
-    this.createdAt = LocalDateTime.now();
-  }
-
-  public UUID getId() {
-    return id;
-  }
-
-  public void setId(UUID id) {
-    this.id = id;
-  }
-
-  public String getNombre() {
-    return nombre;
-  }
-
-  public void setNombre(String nombre) {
-    this.nombre = nombre;
-  }
-
-  public String getDescripcion() {
-    return descripcion;
-  }
-
-  public void setDescripcion(String descripcion) {
-    this.descripcion = descripcion;
-  }
-
-  public Boolean getEsPredeterminado() {
-    return esPredeterminado;
-  }
-
-  public void setEsPredeterminado(Boolean esPredeterminado) {
-    this.esPredeterminado = esPredeterminado;
-  }
-
-  public Boolean getActivo() {
-    return activo;
-  }
-
-  public void setActivo(Boolean activo) {
-    this.activo = activo;
-  }
-
-  public LocalDateTime getCreatedAt() {
-    return createdAt;
-  }
-
-  public void setCreatedAt(LocalDateTime createdAt) {
-    this.createdAt = createdAt;
-  }
-
 }
