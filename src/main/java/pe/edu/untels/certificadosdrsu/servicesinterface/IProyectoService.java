@@ -4,6 +4,6 @@ import pe.edu.untels.certificadosdrsu.entities.Proyecto;
 
 import java.util.List;
 
-public interface Iproyectoservice {
+public interface IProyectoService {
     public List<Proyecto> list();
 }

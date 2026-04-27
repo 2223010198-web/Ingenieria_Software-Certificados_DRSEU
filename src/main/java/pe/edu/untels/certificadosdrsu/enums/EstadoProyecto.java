@@ -1,6 +1,6 @@
 package pe.edu.untels.certificadosdrsu.enums;
 
-public enum Proyectoenum {
+public enum EstadoProyecto {
     BORRADOR,
     PENDIENTE,
     APROBADO,
