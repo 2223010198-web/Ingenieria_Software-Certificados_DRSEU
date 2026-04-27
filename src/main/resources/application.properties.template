@@ -1,0 +1,9 @@
+spring.application.name=decertificadosdrsu
+
+spring.jpa.database=postgresql
+spring.jpa.show-sql=true
+spring.jpa.hibernate.ddl-auto=
+spring.datasource.driver-class-name=org.postgresql.Driver
+spring.datasource.url=jdbc:postgresql://localhost/
+spring.datasource.username=
+spring.datasource.password=
