@@ -6,6 +6,8 @@ import pe.edu.untels.certificadosdrsu.entities.Usuario;
 import pe.edu.untels.certificadosdrsu.repositories.IUsuarioRepository;
 import pe.edu.untels.certificadosdrsu.servicesinterface.IUsuarioService;
 import java.util.List;
+import java.util.Optional;
+import java.util.UUID;
 
 @Service
 public class UsuarioServiceImplement implements IUsuarioService {
@@ -20,5 +22,20 @@ public class UsuarioServiceImplement implements IUsuarioService {
   @Override
   public List<Usuario> list() {
     return uR.findAll();
+  }
+
+  @Override
+  public Optional<Usuario> listId(UUID id) {
+    return uR.findById(id);
+  }
+
+  @Override
+  public Usuario update(Usuario usuario) {
+    return uR.save(usuario);
+  }
+
+  @Override
+  public void delete(UUID id) {
+    uR.deleteById(id);
   }
 }

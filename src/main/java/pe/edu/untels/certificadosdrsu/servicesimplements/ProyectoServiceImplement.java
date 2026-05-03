@@ -7,6 +7,7 @@ import pe.edu.untels.certificadosdrsu.repositories.IProyectoRepository;
 import pe.edu.untels.certificadosdrsu.servicesinterface.IProyectoService;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ProyectoServiceImplement implements IProyectoService {
@@ -17,6 +18,26 @@ public class ProyectoServiceImplement implements IProyectoService {
   @Override
   public List<Proyecto> list() {
     return proyectoRepository.findAll();
+  }
+
+  @Override
+  public Proyecto insert(Proyecto p) {
+    return proyectoRepository.save(p);
+  }
+
+  @Override
+  public Optional<Proyecto> listId(int id) {
+    return proyectoRepository.findById(id);
+  }
+
+  @Override
+  public Proyecto update(Proyecto p) {
+    return proyectoRepository.save(p);
+  }
+
+  @Override
+  public void delete(int id) {
+    proyectoRepository.deleteById(id);
   }
 
 }
