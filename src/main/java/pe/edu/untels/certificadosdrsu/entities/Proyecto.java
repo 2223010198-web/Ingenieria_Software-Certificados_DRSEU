@@ -41,6 +41,10 @@ public class Proyecto {
     private EstadoProyecto estado = EstadoProyecto.PENDIENTE;
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_tipo_proyecto", referencedColumnName = "id")
+    private TipoProyecto tipoProyecto;
+
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_creado_por", nullable = false)
     private Usuario creadoPor;
 
