@@ -8,32 +8,34 @@ public class TipoProyecto {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    @Column(name = "id_tipo_proyecto")
+    private Integer idTipoProyecto;
 
     @Column(name = "tipo_proyecto_nombre", nullable = false)
-    private String tipo_proyecto_nombre;
+    private String tipoProyectoNombre;
 
     public TipoProyecto() {
+
     }
 
-    public TipoProyecto(int id, String tipo_proyecto_nombre) {
-        this.id = id;
-        this.tipo_proyecto_nombre = tipo_proyecto_nombre;
+    public TipoProyecto(Integer idTipoProyecto, String tipoProyectoNombre) {
+        this.idTipoProyecto = idTipoProyecto;
+        this.tipoProyectoNombre = tipoProyectoNombre;
     }
 
-    public int getId() {
-        return id;
+    public Integer getIdTipoProyecto() {
+        return idTipoProyecto;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setIdTipoProyecto(Integer idTipoProyecto) {
+        this.idTipoProyecto = idTipoProyecto;
     }
 
-    public String getTipo_proyecto_nombre() {
-        return tipo_proyecto_nombre;
+    public String getTipoProyectoNombre() {
+        return tipoProyectoNombre;
     }
 
-    public void setTipo_proyecto_nombre(String tipo_proyecto_nombre) {
-        this.tipo_proyecto_nombre = tipo_proyecto_nombre;
+    public void setTipoProyectoNombre(String tipoProyectoNombre) {
+        this.tipoProyectoNombre = tipoProyectoNombre;
     }
 }

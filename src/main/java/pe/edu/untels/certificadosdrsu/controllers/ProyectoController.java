@@ -18,15 +18,17 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/api/proyectos")
 public class ProyectoController {
+
     @Autowired
     private IProyectoService proyectoService;
 
     @Autowired
     private IUsuarioService usuarioService;
+    
+    private final ModelMapper m = new ModelMapper();
 
     @GetMapping("/lista")
     public ResponseEntity<List<ProyectoDto>> listar() {
-        ModelMapper m = new ModelMapper();
         List<ProyectoDto> listaProyectos = proyectoService.list()
                 .stream().map(p -> m.map(p, ProyectoDto.class))
                 .toList();
@@ -36,10 +38,8 @@ public class ProyectoController {
 
     @PostMapping("/nuevo")
     public ResponseEntity<?> registrar(@RequestBody ProyectoInsertDto dto) {
-        ModelMapper m = new ModelMapper();
         Proyecto p = m.map(dto, Proyecto.class);
 
-        // Resolver FK: CreadoPor (Usuario)
         Optional<Usuario> creador = usuarioService.listId(dto.getIdCreadoPor());
         if (creador.isEmpty()) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND)
@@ -47,7 +47,6 @@ public class ProyectoController {
         }
         p.setCreadoPor(creador.get());
 
-        // Resolver FK: AprobadoPor (Usuario, opcional)
         if (dto.getIdAprobadoPor() != null) {
             Optional<Usuario> aprobador = usuarioService.listId(dto.getIdAprobadoPor());
             if (aprobador.isEmpty()) {
@@ -68,7 +67,6 @@ public class ProyectoController {
 
     @GetMapping("/{id}")
     public ResponseEntity<?> buscarPorId(@PathVariable int id) {
-        ModelMapper m = new ModelMapper();
         Optional<Proyecto> proyecto = proyectoService.listId(id);
 
         if (proyecto.isPresent()) {
@@ -87,7 +85,6 @@ public class ProyectoController {
 
     @PutMapping("/{id}")
     public ResponseEntity<?> modificar(@PathVariable int id, @RequestBody ProyectoInsertDto dto) {
-        ModelMapper m = new ModelMapper();
         Optional<Proyecto> existente = proyectoService.listId(id);
         if (existente.isEmpty()) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND)
@@ -105,7 +102,6 @@ public class ProyectoController {
         }
         p.setCreadoPor(creador.get());
 
-        // Resolver FK: AprobadoPor (opcional)
         if (dto.getIdAprobadoPor() != null) {
             Optional<Usuario> aprobador = usuarioService.listId(dto.getIdAprobadoPor());
             if (aprobador.isEmpty()) {
