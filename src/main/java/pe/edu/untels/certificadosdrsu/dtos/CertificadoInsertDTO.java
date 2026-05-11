@@ -6,11 +6,11 @@ import java.time.LocalDateTime;
 
 @Data
 public class CertificadoInsertDTO {
-    private int id;
-    private int idIntegranteProyecto;
-    private int idParticipante;
-    private int idTipoCertificado;
-    private int idProyecto;
+    private Long id;
+    private Long idIntegranteProyecto;
+    private Long idParticipante;
+    private Long idTipoCertificado;
+    private Long idProyecto;
     private String numeroFolio;
     private String tipoParticipacion;
     private String numeroRegistro;
@@ -22,5 +22,5 @@ public class CertificadoInsertDTO {
     private String estadoFirma;
     private LocalDateTime generadoAt;
     private LocalDateTime firmadoAt;
-    private int idGeneradoPor;
+    private Long idGeneradoPor;
 }

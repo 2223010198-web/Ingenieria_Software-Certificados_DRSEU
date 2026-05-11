@@ -5,5 +5,5 @@ import org.springframework.stereotype.Repository;
 import pe.edu.untels.certificadosdrsu.entities.Certificado;
 
 @Repository
-public interface ICertificadoRepository extends JpaRepository<Certificado, Integer> {
+public interface ICertificadoRepository extends JpaRepository<Certificado, Long> {
 }

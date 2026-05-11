@@ -7,7 +7,6 @@ import pe.edu.untels.certificadosdrsu.repositories.IUsuarioRepository;
 import pe.edu.untels.certificadosdrsu.servicesinterface.IUsuarioService;
 import java.util.List;
 import java.util.Optional;
-import java.util.UUID;
 
 @Service
 public class UsuarioServiceImplement implements IUsuarioService {
@@ -25,7 +24,7 @@ public class UsuarioServiceImplement implements IUsuarioService {
   }
 
   @Override
-  public Optional<Usuario> listId(UUID id) {
+  public Optional<Usuario> listId(Long id) {
     return uR.findById(id);
   }
 
@@ -35,7 +34,7 @@ public class UsuarioServiceImplement implements IUsuarioService {
   }
 
   @Override
-  public void delete(UUID id) {
+  public void delete(Long id) {
     uR.deleteById(id);
   }
 }

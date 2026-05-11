@@ -8,7 +8,7 @@ import java.util.Optional;
 public interface IEnvioCorreoService {
     public List<EnvioCorreo> list();
     public EnvioCorreo insert(EnvioCorreo e);
-    public Optional<EnvioCorreo> listId(int id);
+    public Optional<EnvioCorreo> listId(Long id);
     public EnvioCorreo update(EnvioCorreo e);
-    public void delete(int id);
+    public void delete(Long id);
 }

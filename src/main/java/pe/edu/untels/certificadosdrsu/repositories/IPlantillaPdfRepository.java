@@ -5,5 +5,5 @@ import org.springframework.stereotype.Repository;
 import pe.edu.untels.certificadosdrsu.entities.PlantillaPdf;
 
 @Repository
-public interface IPlantillaPdfRepository extends JpaRepository<PlantillaPdf, Integer> {
+public interface IPlantillaPdfRepository extends JpaRepository<PlantillaPdf, Long> {
 }

@@ -77,7 +77,7 @@ public class EnvioCorreoController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<?> buscarPorId(@PathVariable int id) {
+    public ResponseEntity<?> buscarPorId(@PathVariable Long id) {
         ModelMapper m = new ModelMapper();
         Optional<EnvioCorreo> envioCorreo = envioCorreoService.listId(id);
 
@@ -91,7 +91,7 @@ public class EnvioCorreoController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<?> modificar(@PathVariable int id, @RequestBody EnvioCorreoInsertDTO dto) {
+    public ResponseEntity<?> modificar(@PathVariable Long id, @RequestBody EnvioCorreoInsertDTO dto) {
         ModelMapper m = new ModelMapper();
         Optional<EnvioCorreo> existente = envioCorreoService.listId(id);
         if (existente.isEmpty()) {
@@ -132,7 +132,7 @@ public class EnvioCorreoController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<?> eliminar(@PathVariable int id) {
+    public ResponseEntity<?> eliminar(@PathVariable Long id) {
         Optional<EnvioCorreo> existente = envioCorreoService.listId(id);
         if (existente.isPresent()) {
             envioCorreoService.delete(id);

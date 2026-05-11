@@ -5,5 +5,5 @@ import org.springframework.stereotype.Repository;
 import pe.edu.untels.certificadosdrsu.entities.UsuarioAuditoria;
 
 @Repository
-public interface IUsuarioAuditoriaRepository extends JpaRepository<UsuarioAuditoria, Integer> {
+public interface IUsuarioAuditoriaRepository extends JpaRepository<UsuarioAuditoria, Long> {
 }

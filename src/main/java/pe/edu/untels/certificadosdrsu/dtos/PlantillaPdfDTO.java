@@ -4,18 +4,18 @@ import java.time.LocalDateTime;
 
 public class PlantillaPdfDTO {
 
-    private int id;
+    private Long id;
     private String nombrePlantilla;
     private String archivo;
     private String palabrasClave;
     private boolean activo;
     private LocalDateTime createdAt;
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

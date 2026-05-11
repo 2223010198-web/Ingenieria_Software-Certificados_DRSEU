@@ -8,13 +8,13 @@ public class Participacion {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
 
     @Column(name = "id_participante", nullable = false, unique = true)
-    private int idParticipante;
+    private Long idParticipante;
 
     @Column(name = "id_proyecto", nullable = false, unique = true)
-    private int idProyecto;
+    private Long idProyecto;
 
     @Column(name = "tipo_participacion", length = 100, unique = true)
     private String tipoParticipacion;
@@ -25,7 +25,7 @@ public class Participacion {
     public Participacion() {
     }
 
-    public Participacion(int id, int idParticipante, int idProyecto, String tipoParticipacion, String descripcionParticipante) {
+    public Participacion(Long id, Long idParticipante, Long idProyecto, String tipoParticipacion, String descripcionParticipante) {
         this.id = id;
         this.idParticipante = idParticipante;
         this.idProyecto = idProyecto;
@@ -33,27 +33,27 @@ public class Participacion {
         this.descripcionParticipante = descripcionParticipante;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public int getIdParticipante() {
+    public Long getIdParticipante() {
         return idParticipante;
     }
 
-    public void setIdParticipante(int idParticipante) {
+    public void setIdParticipante(Long idParticipante) {
         this.idParticipante = idParticipante;
     }
 
-    public int getIdProyecto() {
+    public Long getIdProyecto() {
         return idProyecto;
     }
 
-    public void setIdProyecto(int idProyecto) {
+    public void setIdProyecto(Long idProyecto) {
         this.idProyecto = idProyecto;
     }
 

@@ -7,7 +7,7 @@ import java.util.Optional;
 public interface IPlantillaPdfService {
     public List<PlantillaPdf> list();
     public PlantillaPdf insert(PlantillaPdf p);
-    public Optional<PlantillaPdf> listId(int id);
+    public Optional<PlantillaPdf> listId(Long id);
     public PlantillaPdf update(PlantillaPdf p);
-    public void delete(int id);
+    public void delete(Long id);
 }

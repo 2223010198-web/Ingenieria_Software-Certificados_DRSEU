@@ -10,13 +10,13 @@ public class UsuarioAuditoria {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
 
     @Column(name = "id_usuario", nullable = false)
-    private int idUsuario;
+    private Long idUsuario;
 
     @Column(name = "user_creado_por")
-    private int userCreadoPor;
+    private Long userCreadoPor;
 
     @Column(name = "cambio_pasword")
     private LocalDate cambioPasword;
@@ -32,7 +32,7 @@ public class UsuarioAuditoria {
     public UsuarioAuditoria() {
     }
 
-    public UsuarioAuditoria(int id, int idUsuario, int userCreadoPor, LocalDate cambioPasword, LocalDateTime createdAt) {
+    public UsuarioAuditoria(Long id, Long idUsuario, Long userCreadoPor, LocalDate cambioPasword, LocalDateTime createdAt) {
         this.id = id;
         this.idUsuario = idUsuario;
         this.userCreadoPor = userCreadoPor;
@@ -40,27 +40,27 @@ public class UsuarioAuditoria {
         this.createdAt = createdAt;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public int getIdUsuario() {
+    public Long getIdUsuario() {
         return idUsuario;
     }
 
-    public void setIdUsuario(int idUsuario) {
+    public void setIdUsuario(Long idUsuario) {
         this.idUsuario = idUsuario;
     }
 
-    public int getUserCreadoPor() {
+    public Long getUserCreadoPor() {
         return userCreadoPor;
     }
 
-    public void setUserCreadoPor(int userCreadoPor) {
+    public void setUserCreadoPor(Long userCreadoPor) {
         this.userCreadoPor = userCreadoPor;
     }
 

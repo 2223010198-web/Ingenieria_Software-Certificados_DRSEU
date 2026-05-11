@@ -25,7 +25,7 @@ public class CertificadoServiceImplement implements ICertificadoService {
     }
 
     @Override
-    public Optional<Certificado> listId(int id) {
+    public Optional<Certificado> listId(Long id) {
         return certificadoRepository.findById(id);
     }
 
@@ -35,7 +35,7 @@ public class CertificadoServiceImplement implements ICertificadoService {
     }
 
     @Override
-    public void delete(int id) {
+    public void delete(Long id) {
         certificadoRepository.deleteById(id);
     }
 }

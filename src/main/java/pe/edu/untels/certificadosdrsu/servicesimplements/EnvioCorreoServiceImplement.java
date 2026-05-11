@@ -25,7 +25,7 @@ public class EnvioCorreoServiceImplement implements IEnvioCorreoService {
     }
 
     @Override
-    public Optional<EnvioCorreo> listId(int id) {
+    public Optional<EnvioCorreo> listId(Long id) {
         return envioCorreoRepository.findById(id);
     }
 
@@ -35,7 +35,7 @@ public class EnvioCorreoServiceImplement implements IEnvioCorreoService {
     }
 
     @Override
-    public void delete(int id) {
+    public void delete(Long id) {
         envioCorreoRepository.deleteById(id);
     }
 }

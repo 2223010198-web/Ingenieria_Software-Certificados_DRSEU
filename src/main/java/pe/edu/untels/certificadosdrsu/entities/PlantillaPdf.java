@@ -9,7 +9,7 @@ public class PlantillaPdf {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private long id;
 
     @Column(name = "nombre_plantilla", length = 100, nullable = false)
     private String nombrePlantilla;
@@ -34,7 +34,7 @@ public class PlantillaPdf {
     public PlantillaPdf() {
     }
 
-    public PlantillaPdf(int id, String nombrePlantilla, String archivo, String palabrasClave, boolean activo, LocalDateTime createdAt) {
+    public PlantillaPdf(long id, String nombrePlantilla, String archivo, String palabrasClave, boolean activo, LocalDateTime createdAt) {
         this.id = id;
         this.nombrePlantilla = nombrePlantilla;
         this.archivo = archivo;
@@ -43,11 +43,11 @@ public class PlantillaPdf {
         this.createdAt = createdAt;
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 

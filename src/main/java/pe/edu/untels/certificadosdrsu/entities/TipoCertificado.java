@@ -6,7 +6,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
-import java.util.UUID;
 
 @Entity
 @Table(name = "tipos_certificado")
@@ -16,9 +15,9 @@ import java.util.UUID;
 public class TipoCertificado {
 
   @Id
-  @GeneratedValue
-  @Column(columnDefinition = "uuid")
-  private UUID idid_tipo_proyecto;
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  @Column(name = "id_tipo_certificado")
+  private Long idTipoCertificado;
 
   @Column(nullable = false, unique = true)
   private String nombre;

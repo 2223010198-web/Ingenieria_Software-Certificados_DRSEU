@@ -32,7 +32,7 @@ public class CertificadoController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<?> buscarPorId(@PathVariable int id) {
+    public ResponseEntity<?> buscarPorId(@PathVariable Long id) {
         Optional<Certificado> certificado = certificadoService.listId(id);
         if (certificado.isPresent()) {
             CertificadoDTO dto = m.map(certificado.get(), CertificadoDTO.class);
@@ -51,7 +51,7 @@ public class CertificadoController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<?> modificar(@PathVariable int id, @RequestBody CertificadoInsertDTO dto) {
+    public ResponseEntity<?> modificar(@PathVariable Long id, @RequestBody CertificadoInsertDTO dto) {
         Optional<Certificado> existente = certificadoService.listId(id);
         if (existente.isPresent()) {
             Certificado c = m.map(dto, Certificado.class);
@@ -65,7 +65,7 @@ public class CertificadoController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<?> eliminar(@PathVariable int id) {
+    public ResponseEntity<?> eliminar(@PathVariable Long id) {
         Optional<Certificado> existente = certificadoService.listId(id);
         if (existente.isPresent()) {
             certificadoService.delete(id);

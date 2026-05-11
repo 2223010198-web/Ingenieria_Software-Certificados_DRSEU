@@ -5,5 +5,5 @@ import org.springframework.stereotype.Repository;
 import pe.edu.untels.certificadosdrsu.entities.TipoProyecto;
 
 @Repository
-public interface ITipoProyectoRepository extends JpaRepository<TipoProyecto, Integer> {
+public interface ITipoProyectoRepository extends JpaRepository<TipoProyecto, Long> {
 }

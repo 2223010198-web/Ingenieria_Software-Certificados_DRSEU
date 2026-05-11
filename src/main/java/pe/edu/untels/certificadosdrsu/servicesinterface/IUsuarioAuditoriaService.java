@@ -7,7 +7,7 @@ import java.util.Optional;
 public interface IUsuarioAuditoriaService {
     public List<UsuarioAuditoria> list();
     public UsuarioAuditoria insert(UsuarioAuditoria u);
-    public Optional<UsuarioAuditoria> listId(int id);
+    public Optional<UsuarioAuditoria> listId(Long id);
     public UsuarioAuditoria update(UsuarioAuditoria u);
-    public void delete(int id);
+    public void delete(Long id);
 }

@@ -15,19 +15,19 @@ import java.time.LocalDateTime;
 public class Certificado {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id; // [cite: 32]
+    private Long id; // [cite: 32]
 
     @Column(name = "id_integrante_proyecto")
-    private int idIntegranteProyecto;
+    private Long idIntegranteProyecto;
 
     @Column(name = "id_participante")
-    private int idParticipante;
+    private Long idParticipante;
 
     @Column(name = "id_tipo_certificado")
-    private int idTipoCertificado;
+    private Long idTipoCertificado;
 
     @Column(name = "id_proyecto")
-    private int idProyecto;
+    private Long idProyecto;
 
     @Column(name = "numero_folio")
     private String numeroFolio;
@@ -63,5 +63,5 @@ public class Certificado {
     private LocalDateTime firmadoAt;
 
     @Column(name = "id_generado_por")
-    private int idGeneradoPor;
+    private Long idGeneradoPor;
 }

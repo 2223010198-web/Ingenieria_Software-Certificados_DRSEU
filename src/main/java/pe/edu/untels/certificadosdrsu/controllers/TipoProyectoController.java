@@ -32,7 +32,7 @@ public class TipoProyectoController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<TipoProyectoDto> buscar(@PathVariable int id) {
+    public ResponseEntity<TipoProyectoDto> buscar(@PathVariable Long id) {
         Optional<TipoProyecto> tipo_proyecto = tipoProyectoService.listId(id);
         if (tipo_proyecto.isPresent()) {
             return ResponseEntity.ok(m.map(tipo_proyecto.get(), TipoProyectoDto.class));
@@ -50,7 +50,7 @@ public class TipoProyectoController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<?> actualizar(@PathVariable int id, @RequestBody TipoProyectoDto dto) {
+    public ResponseEntity<?> actualizar(@PathVariable Long id, @RequestBody TipoProyectoDto dto) {
         Optional<TipoProyecto> tipo_proyecto = tipoProyectoService.listId(id);
 
         if (tipo_proyecto.isPresent()) {
@@ -66,7 +66,7 @@ public class TipoProyectoController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<String> eliminar(@PathVariable int id) {
+    public ResponseEntity<String> eliminar(@PathVariable Long id) {
         Optional<TipoProyecto> existente = tipoProyectoService.listId(id);
 
         if (existente.isPresent()) {

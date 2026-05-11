@@ -66,7 +66,7 @@ public class ProyectoController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<?> buscarPorId(@PathVariable int id) {
+    public ResponseEntity<?> buscarPorId(@PathVariable Long id) {
         Optional<Proyecto> proyecto = proyectoService.listId(id);
 
         if (proyecto.isPresent()) {
@@ -84,7 +84,7 @@ public class ProyectoController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<?> modificar(@PathVariable int id, @RequestBody ProyectoInsertDto dto) {
+    public ResponseEntity<?> modificar(@PathVariable Long id, @RequestBody ProyectoInsertDto dto) {
         Optional<Proyecto> existente = proyectoService.listId(id);
         if (existente.isEmpty()) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND)
@@ -121,7 +121,7 @@ public class ProyectoController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<?> eliminar(@PathVariable int id) {
+    public ResponseEntity<?> eliminar(@PathVariable Long id) {
         Optional<Proyecto> existente = proyectoService.listId(id);
         if (existente.isPresent()) {
             proyectoService.delete(id);

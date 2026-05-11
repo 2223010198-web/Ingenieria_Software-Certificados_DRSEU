@@ -9,16 +9,16 @@ public class EnvioCorreo {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
 
     @Column(name = "id_enviado_por", nullable = false)
-    private int idEnviadoPor;
+    private Long idEnviadoPor;
 
     @Column(name = "id_certificado", nullable = false)
-    private int idCertificado;
+    private Long idCertificado;
 
     @Column(name = "id_participante", nullable = false)
-    private int idParticipante;
+    private Long idParticipante;
 
     @Column(name = "email_destino", length = 100)
     private String emailDestino;
@@ -44,7 +44,7 @@ public class EnvioCorreo {
     public EnvioCorreo() {
     }
 
-    public EnvioCorreo(int id, int idEnviadoPor, int idCertificado, int idParticipante, String emailDestino, String plantillaCorreo, String asunto, String cuerpo, String estado, boolean esReenvio, LocalDateTime enviadoAt) {
+    public EnvioCorreo(Long id, Long idEnviadoPor, Long idCertificado, Long idParticipante, String emailDestino, String plantillaCorreo, String asunto, String cuerpo, String estado, boolean esReenvio, LocalDateTime enviadoAt) {
         this.id = id;
         this.idEnviadoPor = idEnviadoPor;
         this.idCertificado = idCertificado;
@@ -58,35 +58,35 @@ public class EnvioCorreo {
         this.enviadoAt = enviadoAt;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public int getIdEnviadoPor() {
+    public Long getIdEnviadoPor() {
         return idEnviadoPor;
     }
 
-    public void setIdEnviadoPor(int idEnviadoPor) {
+    public void setIdEnviadoPor(Long idEnviadoPor) {
         this.idEnviadoPor = idEnviadoPor;
     }
 
-    public int getIdCertificado() {
+    public Long getIdCertificado() {
         return idCertificado;
     }
 
-    public void setIdCertificado(int idCertificado) {
+    public void setIdCertificado(Long idCertificado) {
         this.idCertificado = idCertificado;
     }
 
-    public int getIdParticipante() {
+    public Long getIdParticipante() {
         return idParticipante;
     }
 
-    public void setIdParticipante(int idParticipante) {
+    public void setIdParticipante(Long idParticipante) {
         this.idParticipante = idParticipante;
     }
 

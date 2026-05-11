@@ -26,7 +26,7 @@ public class ProyectoServiceImplement implements IProyectoService {
   }
 
   @Override
-  public Optional<Proyecto> listId(int id) {
+  public Optional<Proyecto> listId(Long id) {
     return proyectoRepository.findById(id);
   }
 
@@ -36,7 +36,7 @@ public class ProyectoServiceImplement implements IProyectoService {
   }
 
   @Override
-  public void delete(int id) {
+  public void delete(Long id) {
     proyectoRepository.deleteById(id);
   }
 

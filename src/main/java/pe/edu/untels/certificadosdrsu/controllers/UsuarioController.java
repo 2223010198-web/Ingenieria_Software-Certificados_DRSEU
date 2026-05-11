@@ -11,7 +11,6 @@ import pe.edu.untels.certificadosdrsu.servicesinterface.IUsuarioService;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.UUID;
 import java.util.stream.Collectors;
 
 @RestController
@@ -36,7 +35,7 @@ public class UsuarioController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<?> buscarPorId(@PathVariable UUID id) {
+    public ResponseEntity<?> buscarPorId(@PathVariable Long id) {
         ModelMapper m = new ModelMapper();
         Optional<Usuario> usuario = uS.listId(id);
 
@@ -50,7 +49,7 @@ public class UsuarioController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<?> modificar(@PathVariable UUID id, @RequestBody UsuarioDTO dto) {
+    public ResponseEntity<?> modificar(@PathVariable Long id, @RequestBody UsuarioDTO dto) {
         ModelMapper m = new ModelMapper();
         Optional<Usuario> existente = uS.listId(id);
         if (existente.isPresent()) {
@@ -66,7 +65,7 @@ public class UsuarioController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<?> eliminar(@PathVariable UUID id) {
+    public ResponseEntity<?> eliminar(@PathVariable Long id) {
         Optional<Usuario> existente = uS.listId(id);
         if (existente.isPresent()) {
             uS.delete(id);

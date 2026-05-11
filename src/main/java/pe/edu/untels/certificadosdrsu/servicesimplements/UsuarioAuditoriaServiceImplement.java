@@ -26,7 +26,7 @@ public class UsuarioAuditoriaServiceImplement implements IUsuarioAuditoriaServic
     }
 
     @Override
-    public Optional<UsuarioAuditoria> listId(int id) {
+    public Optional<UsuarioAuditoria> listId(Long id) {
         return repository.findById(id);
     }
 
@@ -36,7 +36,7 @@ public class UsuarioAuditoriaServiceImplement implements IUsuarioAuditoriaServic
     }
 
     @Override
-    public void delete(int id) {
+    public void delete(Long id) {
         repository.deleteById(id);
     }
 }

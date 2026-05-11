@@ -1,13 +1,12 @@
 package pe.edu.untels.certificadosdrsu.dtos;
 
 import java.time.LocalDateTime;
-import java.util.UUID;
 
 import lombok.Data;
 
 @Data
 public class UsuarioDTO {
-  private UUID id;
+  private Long id;
   private String nombreCompleto;
   private String dni;
   private String email;
@@ -16,5 +15,5 @@ public class UsuarioDTO {
   private boolean esTemporal;
   private boolean activo;
   private LocalDateTime createdAt;
-  private UUID creadoPorId;
+  private Long creadoPorId;
 }

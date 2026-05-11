@@ -18,7 +18,7 @@ public class Proyecto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_proyecto")
-    private Integer idProyecto;
+    private long idProyecto;
 
     @Column(name = "titulo", nullable = false, length = 255)
     private String titulo;
@@ -60,7 +60,7 @@ public class Proyecto {
 
     }
 
-    public Proyecto(Integer idProyecto, String titulo, String descripcion, String documentoAprobacion, LocalDate fechaAprobacion, EstadoProyecto estado, TipoProyecto tipoProyecto, Usuario creadoPor, Usuario aprobadoPor, LocalDateTime createdAt, LocalDateTime updatedAt) {
+    public Proyecto(long idProyecto, String titulo, String descripcion, String documentoAprobacion, LocalDate fechaAprobacion, EstadoProyecto estado, TipoProyecto tipoProyecto, Usuario creadoPor, Usuario aprobadoPor, LocalDateTime createdAt, LocalDateTime updatedAt) {
         this.idProyecto = idProyecto;
         this.titulo = titulo;
         this.descripcion = descripcion;
@@ -74,11 +74,11 @@ public class Proyecto {
         this.updatedAt = updatedAt;
     }
 
-    public Integer getIdProyecto() {
+    public long getIdProyecto() {
         return idProyecto;
     }
 
-    public void setIdProyecto(Integer idProyecto) {
+    public void setIdProyecto(long idProyecto) {
         this.idProyecto = idProyecto;
     }
 

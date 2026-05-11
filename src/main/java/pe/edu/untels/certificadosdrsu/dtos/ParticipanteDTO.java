@@ -12,5 +12,5 @@ public class ParticipanteDTO {
     private String celular;
     private CategoriaParticipante categoria;
     private boolean activo;
-    private int usuarioId;
+    private Long usuarioId;
 }

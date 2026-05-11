@@ -39,7 +39,7 @@ public class PlantillaPdfController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<?> buscarPorId(@PathVariable int id) {
+    public ResponseEntity<?> buscarPorId(@PathVariable Long id) {
         ModelMapper m = new ModelMapper();
         Optional<PlantillaPdf> entidad = service.listId(id);
         
@@ -52,7 +52,7 @@ public class PlantillaPdfController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<?> modificar(@PathVariable int id, @RequestBody PlantillaPdfDTO dto) {
+    public ResponseEntity<?> modificar(@PathVariable Long id, @RequestBody PlantillaPdfDTO dto) {
         ModelMapper m = new ModelMapper();
         Optional<PlantillaPdf> existente = service.listId(id);
         
@@ -68,7 +68,7 @@ public class PlantillaPdfController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<?> eliminar(@PathVariable int id) {
+    public ResponseEntity<?> eliminar(@PathVariable Long id) {
         Optional<PlantillaPdf> existente = service.listId(id);
         
         if (existente.isPresent()) {

@@ -26,7 +26,7 @@ public class PlantillaPdfServiceImplement implements IPlantillaPdfService {
     }
 
     @Override
-    public Optional<PlantillaPdf> listId(int id) {
+    public Optional<PlantillaPdf> listId(Long id) {
         return repository.findById(id);
     }
 
@@ -36,7 +36,7 @@ public class PlantillaPdfServiceImplement implements IPlantillaPdfService {
     }
 
     @Override
-    public void delete(int id) {
+    public void delete(Long id) {
         repository.deleteById(id);
     }
 }

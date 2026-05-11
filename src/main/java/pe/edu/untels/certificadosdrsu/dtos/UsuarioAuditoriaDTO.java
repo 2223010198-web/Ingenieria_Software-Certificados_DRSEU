@@ -5,33 +5,33 @@ import java.time.LocalDateTime;
 
 public class UsuarioAuditoriaDTO {
 
-    private int id;
-    private int idUsuario;
-    private int userCreadoPor;
+    private Long id;
+    private Long idUsuario;
+    private Long userCreadoPor;
     private LocalDate cambioPasword;
     private LocalDateTime createdAt;
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public int getIdUsuario() {
+    public Long getIdUsuario() {
         return idUsuario;
     }
 
-    public void setIdUsuario(int idUsuario) {
+    public void setIdUsuario(Long idUsuario) {
         this.idUsuario = idUsuario;
     }
 
-    public int getUserCreadoPor() {
+    public Long getUserCreadoPor() {
         return userCreadoPor;
     }
 
-    public void setUserCreadoPor(int userCreadoPor) {
+    public void setUserCreadoPor(Long userCreadoPor) {
         this.userCreadoPor = userCreadoPor;
     }
 

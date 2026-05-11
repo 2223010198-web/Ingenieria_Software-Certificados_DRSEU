@@ -9,7 +9,7 @@ public class Usuario {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
 
     @Column(name = "username", length = 100, nullable = false)
     private String username;
@@ -24,7 +24,7 @@ public class Usuario {
     private boolean activo = true;
 
     @Column(name = "id_participante")
-    private int idParticipante;
+    private Long idParticipante;
 
     @Column(name = "created_at", updatable = false)
     private LocalDateTime createdAt;
@@ -37,7 +37,7 @@ public class Usuario {
     public Usuario() {
     }
 
-    public Usuario(int id, String username, String passwordHash, String rol, boolean activo, int idParticipante, LocalDateTime createdAt) {
+    public Usuario(Long id, String username, String passwordHash, String rol, boolean activo, Long idParticipante, LocalDateTime createdAt) {
         this.id = id;
         this.username = username;
         this.passwordHash = passwordHash;
@@ -47,11 +47,11 @@ public class Usuario {
         this.createdAt = createdAt;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -87,11 +87,11 @@ public class Usuario {
         this.activo = activo;
     }
 
-    public int getIdParticipante() {
+    public Long getIdParticipante() {
         return idParticipante;
     }
 
-    public void setIdParticipante(int idParticipante) {
+    public void setIdParticipante(Long idParticipante) {
         this.idParticipante = idParticipante;
     }
 

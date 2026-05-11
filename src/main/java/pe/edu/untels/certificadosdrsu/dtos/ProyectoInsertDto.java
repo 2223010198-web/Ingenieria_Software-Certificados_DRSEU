@@ -2,7 +2,6 @@ package pe.edu.untels.certificadosdrsu.dtos;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.UUID;
 
 import lombok.Data;
 import pe.edu.untels.certificadosdrsu.entities.TipoProyecto;
@@ -17,8 +16,8 @@ public class ProyectoInsertDto {
     private LocalDate fechaAprobacion;
     private String estado;
     private TipoProyecto tipoProyecto;
-    private Integer idCreadoPor;
-    private Integer idAprobadoPor;
+    private Long idCreadoPor;
+    private Long idAprobadoPor;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 
@@ -78,19 +77,19 @@ public class ProyectoInsertDto {
         this.tipoProyecto = tipoProyecto;
     }
 
-    public Integer getIdCreadoPor() {
+    public Long getIdCreadoPor() {
         return idCreadoPor;
     }
 
-    public void setIdCreadoPor(Integer idCreadoPor) {
+    public void setIdCreadoPor(Long idCreadoPor) {
         this.idCreadoPor = idCreadoPor;
     }
 
-    public Integer getIdAprobadoPor() {
+    public Long getIdAprobadoPor() {
         return idAprobadoPor;
     }
 
-    public void setIdAprobadoPor(Integer idAprobadoPor) {
+    public void setIdAprobadoPor(Long idAprobadoPor) {
         this.idAprobadoPor = idAprobadoPor;
     }
 

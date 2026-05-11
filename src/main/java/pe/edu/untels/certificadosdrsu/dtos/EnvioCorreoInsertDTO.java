@@ -3,10 +3,10 @@ package pe.edu.untels.certificadosdrsu.dtos;
 import java.time.LocalDateTime;
 
 public class EnvioCorreoInsertDTO {
-    private int id;
-    private int idEnviadoPor;
-    private int idCertificado;
-    private int idParticipante;
+    private Long id;
+    private Long idEnviadoPor;
+    private Long idCertificado;
+    private Long idParticipante;
     private String emailDestino;
     private String plantillaCorreo;
     private String asunto;
@@ -15,35 +15,35 @@ public class EnvioCorreoInsertDTO {
     private boolean esReenvio;
     private LocalDateTime enviadoAt;
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public int getIdEnviadoPor() {
+    public Long getIdEnviadoPor() {
         return idEnviadoPor;
     }
 
-    public void setIdEnviadoPor(int idEnviadoPor) {
+    public void setIdEnviadoPor(Long idEnviadoPor) {
         this.idEnviadoPor = idEnviadoPor;
     }
 
-    public int getIdCertificado() {
+    public Long getIdCertificado() {
         return idCertificado;
     }
 
-    public void setIdCertificado(int idCertificado) {
+    public void setIdCertificado(Long idCertificado) {
         this.idCertificado = idCertificado;
     }
 
-    public int getIdParticipante() {
+    public Long getIdParticipante() {
         return idParticipante;
     }
 
-    public void setIdParticipante(int idParticipante) {
+    public void setIdParticipante(Long idParticipante) {
         this.idParticipante = idParticipante;
     }
 

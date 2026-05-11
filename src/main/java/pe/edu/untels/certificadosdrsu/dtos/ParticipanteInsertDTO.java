@@ -7,7 +7,7 @@ import java.time.LocalDateTime;
 
 @Data
 public class ParticipanteInsertDTO {
-    private int id;
+    private Long id;
     private String dni;
     private String nombres;
     private String apellidos;
@@ -15,7 +15,7 @@ public class ParticipanteInsertDTO {
     private String celular;
     private CategoriaParticipante categoria;
     private boolean activo;
-    private int usuarioId;
+    private Long usuarioId;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 }
