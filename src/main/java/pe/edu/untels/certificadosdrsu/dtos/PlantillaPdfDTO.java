@@ -1,47 +1,15 @@
-package pe.edu.untels.certificadosdrsu.entities;
+package pe.edu.untels.certificadosdrsu.dtos;
 
-import jakarta.persistence.*;
 import java.time.LocalDateTime;
 
-@Entity
-@Table(name = "plantillas_pdf")
-public class PlantillaPdf {
+public class PlantillaPdfDTO {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-
-    @Column(name = "nombre_plantilla", length = 100, nullable = false)
     private String nombrePlantilla;
-
-    @Column(name = "archivo", length = 255)
     private String archivo;
-
-    @Column(name = "palabras_clave", columnDefinition = "JSON")
     private String palabrasClave;
-
-    @Column(name = "activo", nullable = false)
-    private boolean activo = true;
-
-    @Column(name = "created_at", updatable = false)
+    private boolean activo;
     private LocalDateTime createdAt;
-
-    @PrePersist
-    protected void onCreate() {
-        createdAt = LocalDateTime.now();
-    }
-
-    public PlantillaPdf() {
-    }
-
-    public PlantillaPdf(int id, String nombrePlantilla, String archivo, String palabrasClave, boolean activo, LocalDateTime createdAt) {
-        this.id = id;
-        this.nombrePlantilla = nombrePlantilla;
-        this.archivo = archivo;
-        this.palabrasClave = palabrasClave;
-        this.activo = activo;
-        this.createdAt = createdAt;
-    }
 
     public int getId() {
         return id;
