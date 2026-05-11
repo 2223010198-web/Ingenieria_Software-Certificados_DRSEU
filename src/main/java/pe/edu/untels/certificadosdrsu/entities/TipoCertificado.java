@@ -18,7 +18,7 @@ public class TipoCertificado {
   @Id
   @GeneratedValue
   @Column(columnDefinition = "uuid")
-  private UUID id;
+  private UUID idid_tipo_proyecto;
 
   @Column(nullable = false, unique = true)
   private String nombre;

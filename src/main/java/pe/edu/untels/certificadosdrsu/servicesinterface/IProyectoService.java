@@ -7,8 +7,8 @@ import java.util.Optional;
 
 public interface IProyectoService {
     public List<Proyecto> list();
-    public Proyecto insert(Proyecto p);
     public Optional<Proyecto> listId(int id);
-    public Proyecto update(Proyecto p);
+    public Proyecto insert(Proyecto proyecto);
+    public Proyecto update(Proyecto proyecto);
     public void delete(int id);
 }
