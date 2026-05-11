@@ -2,9 +2,11 @@ package pe.edu.untels.certificadosdrsu.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-import pe.edu.untels.certificadosdrsu.entities.Usuario;
+import pe.edu.untels.certificadosdrsu.entities.Participante;
+
 import java.util.UUID;
 
+
 @Repository
-public interface IUsuarioRepository extends JpaRepository<Usuario, Integer> {
+public interface IParticipanteRepository extends JpaRepository<Participante, Integer> {
 }

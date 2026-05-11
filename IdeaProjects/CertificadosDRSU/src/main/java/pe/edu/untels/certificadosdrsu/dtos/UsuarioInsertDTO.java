@@ -1,26 +1,12 @@
 package pe.edu.untels.certificadosdrsu.dtos;
 
-import lombok.Data;
-import java.time.LocalDateTime;
-import java.util.UUID;
 import pe.edu.untels.certificadosdrsu.entities.Participante;
 
-@Data
-public class UsuarioDTO {
-    private Integer id;
+public class UsuarioInsertDTO {
     private String username;
     private String passwordHash;
     private String rol;
-    private boolean activo;
     private Participante participante;
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
 
     public String getUsername() {
         return username;
@@ -44,14 +30,6 @@ public class UsuarioDTO {
 
     public void setRol(String rol) {
         this.rol = rol;
-    }
-
-    public boolean isActivo() {
-        return activo;
-    }
-
-    public void setActivo(boolean activo) {
-        this.activo = activo;
     }
 
     public Participante getParticipante() {

@@ -1,42 +1,82 @@
 package pe.edu.untels.certificadosdrsu.entities;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 import java.time.LocalDateTime;
-import java.util.UUID;
 
 @Entity
-@Table(name = "Usuario")
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
+@Table(name = "usuario")
 public class Usuario {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private UUID id;
-
-    @Column(name = "nombre_completo", nullable = false)
-    private String nombreCompleto;
-
-    @Column(unique = true, nullable = false)
-    private String dni;
-
-    @Column(unique = true, nullable = false)
-    private String email;
-
-    @Column(name = "password_hash", nullable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+    private String username;
+    @Column(name = "password_hash")
     private String passwordHash;
-
     private String rol;
-    private boolean esTemporal;
-    private boolean activo;
+    private boolean activo = true;
+    @Column(name = "created_at", updatable = false)
+    private LocalDateTime createdAt = LocalDateTime.now();
 
-    @Column(name = "created_at")
-    private LocalDateTime createdAt;
+    @OneToOne
+    @JoinColumn(name = "id_participante", referencedColumnName = "id")
+    private Participante participante;
 
-    @ManyToOne
-    @JoinColumn(name = "creado_por")
-    private Usuario creadoPor;
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public Participante getParticipante() {
+        return participante;
+    }
+
+    public void setParticipante(Participante participante) {
+        this.participante = participante;
+    }
+
+    public boolean isActivo() {
+        return activo;
+    }
+
+    public void setActivo(boolean activo) {
+        this.activo = activo;
+    }
+
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public String getRol() {
+        return rol;
+    }
+
+    public void setRol(String rol) {
+        this.rol = rol;
+    }
+
+    public String getPasswordHash() {
+        return passwordHash;
+    }
+
+    public void setPasswordHash(String passwordHash) {
+        this.passwordHash = passwordHash;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
 }
+
+
+
