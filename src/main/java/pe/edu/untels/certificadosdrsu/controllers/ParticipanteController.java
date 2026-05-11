@@ -63,7 +63,7 @@ public class ParticipanteController {
         Optional<Participante> existente = participanteService.listId(id);
         if (existente.isPresent()) {
             Participante p = m.map(dto, Participante.class);
-            p.setId(id);
+            p.setIdParticipante(id);
             Participante actualizado = participanteService.update(p);
             ParticipanteInsertDTO responseDTO = m.map(actualizado, ParticipanteInsertDTO.class);
             return ResponseEntity.ok(responseDTO);

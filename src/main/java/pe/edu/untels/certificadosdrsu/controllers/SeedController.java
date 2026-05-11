@@ -94,14 +94,14 @@ public class SeedController {
         };
         for (String[] d : datos) {
             Participante p = new Participante();
-            p.setDni(d[0]);
+            // p.setDni(d[0]);
             p.setNombres(d[1]);
             p.setApellidos(d[2]);
             p.setEmail(d[3]);
             p.setCelular(d[4]);
-            p.setCategoria(CategoriaParticipante.valueOf(d[5]));
+            // p.setCategoria(CategoriaParticipante.valueOf(d[5]));
             p.setActivo(true);
-            p.setUsuarioId(1);
+
             participanteService.insert(p);
             count++;
         }
