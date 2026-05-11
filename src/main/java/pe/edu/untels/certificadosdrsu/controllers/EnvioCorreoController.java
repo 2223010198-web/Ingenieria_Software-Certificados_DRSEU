@@ -53,7 +53,7 @@ public class EnvioCorreoController {
             return ResponseEntity.status(HttpStatus.NOT_FOUND)
                     .body("Participante remitente no encontrado");
         }
-        e.setIdEnviadoPor(enviadoPor.get().getId());
+        e.setIdEnviadoPor(enviadoPor.get().getIdParticipante());
 
         // Resolver FK: idCertificado (Certificado)
         Optional<Certificado> certificado = certificadoService.listId(dto.getIdCertificado());
@@ -69,7 +69,7 @@ public class EnvioCorreoController {
             return ResponseEntity.status(HttpStatus.NOT_FOUND)
                     .body("Participante destinatario no encontrado");
         }
-        e.setIdParticipante(participante.get().getId());
+        e.setIdParticipante(participante.get().getIdParticipante());
 
         EnvioCorreo guardado = envioCorreoService.insert(e);
         EnvioCorreoInsertDTO responseDTO = m.map(guardado, EnvioCorreoInsertDTO.class);
@@ -108,7 +108,7 @@ public class EnvioCorreoController {
             return ResponseEntity.status(HttpStatus.NOT_FOUND)
                     .body("Participante remitente no encontrado");
         }
-        e.setIdEnviadoPor(enviadoPor.get().getId());
+        e.setIdEnviadoPor(enviadoPor.get().getIdParticipante());
 
         // Resolver FK: idCertificado (Certificado)
         Optional<Certificado> certificado = certificadoService.listId(dto.getIdCertificado());
@@ -124,7 +124,7 @@ public class EnvioCorreoController {
             return ResponseEntity.status(HttpStatus.NOT_FOUND)
                     .body("Participante destinatario no encontrado");
         }
-        e.setIdParticipante(participante.get().getId());
+        e.setIdParticipante(participante.get().getIdParticipante());
 
         EnvioCorreo actualizado = envioCorreoService.update(e);
         EnvioCorreoInsertDTO responseDTO = m.map(actualizado, EnvioCorreoInsertDTO.class);

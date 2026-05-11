@@ -24,7 +24,7 @@ public class ProyectoController {
 
     @Autowired
     private IUsuarioService usuarioService;
-    
+
     private final ModelMapper m = new ModelMapper();
 
     @GetMapping("/lista")

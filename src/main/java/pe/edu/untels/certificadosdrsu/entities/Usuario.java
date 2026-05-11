@@ -1,52 +1,105 @@
 package pe.edu.untels.certificadosdrsu.entities;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import pe.edu.untels.certificadosdrsu.enums.RolUsuario;
-
 import java.time.LocalDateTime;
-import java.util.UUID;
 
 @Entity
-@Table(name = "usuarios")
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
+@Table(name = "Usuario")
 public class Usuario {
 
-  @Id
-  @GeneratedValue
-  @Column(columnDefinition = "uuid")
-  private UUID id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
 
-  @Column(name = "nombre_completo", nullable = false)
-  private String nombreCompleto;
+    @Column(name = "username", length = 100, nullable = false)
+    private String username;
 
-  @Column(nullable = false, unique = true, length = 8)
-  private String dni;
+    @Column(name = "password_hash", length = 255, nullable = false)
+    private String passwordHash;
 
-  @Column(nullable = false, unique = true)
-  private String email;
+    @Column(name = "rol", length = 50)
+    private String rol;
 
-  @Column(name = "password_hash", nullable = false)
-  private String passwordHash;
+    @Column(name = "activo", nullable = false)
+    private boolean activo = true;
 
-  @Enumerated(EnumType.STRING)
-  @Column(nullable = false)
-  private RolUsuario rol;
+    @Column(name = "id_participante")
+    private int idParticipante;
 
-  @Column(name = "es_temporal", nullable = false)
-  private Boolean esTemporal = false;
+    @Column(name = "created_at", updatable = false)
+    private LocalDateTime createdAt;
 
-  @Column(nullable = false)
-  private Boolean activo = true;
+    @PrePersist
+    protected void onCreate() {
+        createdAt = LocalDateTime.now();
+    }
 
-  @Column(name = "created_at", nullable = false)
-  private LocalDateTime createdAt;
+    public Usuario() {
+    }
 
-  @ManyToOne
-  @JoinColumn(name = "creado_por_id")
-  private Usuario creadoPor;
+    public Usuario(int id, String username, String passwordHash, String rol, boolean activo, int idParticipante, LocalDateTime createdAt) {
+        this.id = id;
+        this.username = username;
+        this.passwordHash = passwordHash;
+        this.rol = rol;
+        this.activo = activo;
+        this.idParticipante = idParticipante;
+        this.createdAt = createdAt;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPasswordHash() {
+        return passwordHash;
+    }
+
+    public void setPasswordHash(String passwordHash) {
+        this.passwordHash = passwordHash;
+    }
+
+    public String getRol() {
+        return rol;
+    }
+
+    public void setRol(String rol) {
+        this.rol = rol;
+    }
+
+    public boolean isActivo() {
+        return activo;
+    }
+
+    public void setActivo(boolean activo) {
+        this.activo = activo;
+    }
+
+    public int getIdParticipante() {
+        return idParticipante;
+    }
+
+    public void setIdParticipante(int idParticipante) {
+        this.idParticipante = idParticipante;
+    }
+
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
+    }
 }
