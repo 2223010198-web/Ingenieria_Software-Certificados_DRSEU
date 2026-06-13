@@ -1,8 +1,8 @@
-# 📜 Sistema de Gestión de Certificados — DRSEU UNTELS
+# Sistema de Gestión de Certificados — DRSEU UNTELS
 
 API RESTful para la gestión integral de certificados digitales, proyectos académicos y participantes de la Dirección de Responsabilidad Social y Extensión Universitaria (DRSEU) de la Universidad Nacional Tecnológica de Lima Sur (UNTELS).
 
-## 📋 Descripción
+## Descripción
 
 El sistema centraliza y automatiza el ciclo de vida completo de los certificados institucionales: desde el registro de proyectos y participantes, hasta la generación de documentos PDF personalizados, firma digital, distribución por correo electrónico y validación mediante códigos únicos.
 
@@ -17,7 +17,7 @@ El sistema centraliza y automatiza el ciclo de vida completo de los certificados
 - **Auditoría de Usuarios**: Trazabilidad de acciones y cambios de contraseña por usuario.
 - **Documentación interactiva**: Swagger UI integrado para exploración y prueba de endpoints.
 
-## 🛠️ Stack Tecnológico
+## Stack Tecnológico
 
 | Capa | Tecnología |
 |---|---|
@@ -31,7 +31,7 @@ El sistema centraliza y automatiza el ciclo de vida completo de los certificados
 | Build | Maven (Maven Wrapper incluido) |
 | Control de versiones | Git + GitHub |
 
-## 🏗️ Arquitectura
+## Arquitectura
 
 El proyecto implementa una **arquitectura en capas** con separación de responsabilidades mediante interfaces:
 
@@ -53,7 +53,7 @@ Cliente HTTP  →  Controller  →  Service (Interface)  →  Repository  →  P
                     DTOs             Entities
 ```
 
-## 📡 Endpoints de la API
+## Endpoints de la API
 
 | Recurso | Base URL | Operaciones |
 |---|---|---|
@@ -69,7 +69,7 @@ Cliente HTTP  →  Controller  →  Service (Interface)  →  Repository  →  P
 
 > Documentación interactiva disponible en: `http://localhost:8080/swagger-ui.html`
 
-## ⚙️ Configuración y Ejecución
+## Configuración y Ejecución
 
 ### Prerrequisitos
 
@@ -102,7 +102,7 @@ cd Ingenieria_Software-Certificados_DRSEU
 
 La API estará disponible en `http://localhost:8080`.
 
-## 🗺️ Roadmap
+## Roadmap
 
 - [ ] Autenticación y autorización con Spring Security + JWT
 - [ ] Validación de datos de entrada con Bean Validation
@@ -115,7 +115,7 @@ La API estará disponible en `http://localhost:8080`.
 - [ ] Manejo global de excepciones
 - [ ] Tests unitarios y de integración
 
-## 👥 Equipo
+## Equipo
 
 | Integrante |
 |---|
@@ -125,6 +125,6 @@ La API estará disponible en `http://localhost:8080`.
 | Junior Joel Pérez Damián |
 | Ronny Luis Pumaricra Meneses |
 
-## 📄 Licencia
+## Licencia
 
 Proyecto académico desarrollado para el curso de Ingeniería de Software — UNTELS.
