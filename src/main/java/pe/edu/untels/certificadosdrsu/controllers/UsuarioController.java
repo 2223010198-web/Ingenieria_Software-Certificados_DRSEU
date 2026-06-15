@@ -5,6 +5,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import pe.edu.untels.certificadosdrsu.dtos.UserRequest;
 import pe.edu.untels.certificadosdrsu.dtos.UsuarioDTO;
 import pe.edu.untels.certificadosdrsu.entities.Usuario;
 import pe.edu.untels.certificadosdrsu.servicesinterface.IUsuarioService;
@@ -20,10 +22,8 @@ public class UsuarioController {
     private IUsuarioService uS;
 
     @PostMapping
-    public void registrar(@RequestBody UsuarioDTO dto) {
-        ModelMapper m = new ModelMapper();
-        Usuario u = m.map(dto, Usuario.class);
-        uS.insert(u);
+    public ResponseEntity<Usuario> crearUsuario(@RequestBody UserRequest request) {
+        return ResponseEntity.status(HttpStatus.CREATED).body(uS.create(request));
     }
 
     @GetMapping
