@@ -32,5 +32,15 @@ build/
 ### VS Code ###
 .vscode/
 
-### Profiles ###
+### Profiles / Credenciales ###
 src/main/resources/application-local.properties
+src/main/resources/application-*.properties
+!src/main/resources/application.properties
+
+### Seguridad ###
+*.env
+.env*
+*.pem
+*.key
+*.p12
+*.jks
