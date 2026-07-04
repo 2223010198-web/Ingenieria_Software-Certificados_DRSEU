@@ -13,6 +13,7 @@ import pe.edu.untels.certificadosdrsu.dtos.ProyectoInsertDto;
 import pe.edu.untels.certificadosdrsu.dtos.ProyectoSearchResponseDTO;
 import pe.edu.untels.certificadosdrsu.entities.Proyecto;
 import pe.edu.untels.certificadosdrsu.entities.Usuario;
+import pe.edu.untels.certificadosdrsu.enums.EstadoProyecto;
 import pe.edu.untels.certificadosdrsu.servicesinterface.IProyectoIntegranteService;
 import pe.edu.untels.certificadosdrsu.servicesinterface.IProyectoService;
 import pe.edu.untels.certificadosdrsu.servicesinterface.IUsuarioService;

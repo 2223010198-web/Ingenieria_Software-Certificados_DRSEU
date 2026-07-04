@@ -1,6 +1,9 @@
 package pe.edu.untels.certificadosdrsu.entities;
 
 import jakarta.persistence.*;
+import org.hibernate.annotations.JdbcTypeCode;
+import org.hibernate.type.SqlTypes;
+
 import java.time.LocalDateTime;
 
 @Entity
@@ -18,6 +21,7 @@ public class PlantillaPdf {
     private String archivo;
 
     @Column(name = "palabras_clave", columnDefinition = "JSON")
+    @JdbcTypeCode(SqlTypes.JSON)
     private String palabrasClave;
 
     @Column(name = "activo", nullable = false)
