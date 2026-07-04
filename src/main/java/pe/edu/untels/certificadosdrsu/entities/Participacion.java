@@ -3,20 +3,26 @@ package pe.edu.untels.certificadosdrsu.entities;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "Participaciones")
+@Table(
+        name = "Participaciones",
+        uniqueConstraints = @UniqueConstraint(
+                name = "uk_participacion_proyecto_participante",
+                columnNames = {"id_proyecto", "id_participante"}
+        )
+)
 public class Participacion {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "id_participante", nullable = false, unique = true)
+    @Column(name = "id_participante", nullable = false)
     private Long idParticipante;
 
-    @Column(name = "id_proyecto", nullable = false, unique = true)
+    @Column(name = "id_proyecto", nullable = false)
     private Long idProyecto;
 
-    @Column(name = "tipo_participacion", length = 100, unique = true)
+    @Column(name = "tipo_participacion", length = 100)
     private String tipoParticipacion;
 
     @Column(name = "descripcion_participante", length = 255)

@@ -3,12 +3,11 @@ package pe.edu.untels.certificadosdrsu.dtos;
 import lombok.Data;
 import pe.edu.untels.certificadosdrsu.enums.CategoriaParticipante;
 
-import java.time.LocalDateTime;
-
 @Data
-public class ParticipanteInsertDTO {
-    private Long id;
+public class ParticipanteProyectoDTO {
+    private Long participacionId;
     private Long idParticipante;
+    private Long idProyecto;
     private String dni;
     private String nombres;
     private String apellidos;
@@ -17,7 +16,6 @@ public class ParticipanteInsertDTO {
     private String celular;
     private CategoriaParticipante categoria;
     private boolean activo;
-    private Long usuarioId;
-    private LocalDateTime createdAt;
-    private LocalDateTime updatedAt;
+    private String tipoParticipacion;
+    private String descripcionParticipante;
 }
