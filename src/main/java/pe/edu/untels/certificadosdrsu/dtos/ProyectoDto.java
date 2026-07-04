@@ -7,12 +7,30 @@ import lombok.Data;
 
 public class ProyectoDto {
 
+    private Long idProyecto;
     private String titulo;
     private String descripcion;
     private String numeroRegistro;
     private String documentoAprobacion;
     private LocalDate fechaAprobacion;
     private String estado;
+    private Long cantidadIntegrantes;
+
+    public Long getIdProyecto() {
+        return idProyecto;
+    }
+
+    public void setIdProyecto(Long idProyecto) {
+        this.idProyecto = idProyecto;
+    }
+
+    public Long getCantidadIntegrantes() {
+        return cantidadIntegrantes;
+    }
+
+    public void setCantidadIntegrantes(Long cantidadIntegrantes) {
+        this.cantidadIntegrantes = cantidadIntegrantes;
+    }
 
     public String getTitulo() {
         return titulo;

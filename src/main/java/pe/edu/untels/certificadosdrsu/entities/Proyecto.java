@@ -26,6 +26,9 @@ public class Proyecto {
     @Column(name = "descripcion", columnDefinition = "TEXT")
     private String descripcion;
 
+    @Column(name = "numero_registro", length = 100)
+    private String numeroRegistro;
+
     @Column(name = "documento_aprobacion", length = 255)
     private String documentoAprobacion;
 
@@ -96,6 +99,14 @@ public class Proyecto {
 
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
+    }
+
+    public String getNumeroRegistro() {
+        return numeroRegistro;
+    }
+
+    public void setNumeroRegistro(String numeroRegistro) {
+        this.numeroRegistro = numeroRegistro;
     }
 
     public String getDocumentoAprobacion() {

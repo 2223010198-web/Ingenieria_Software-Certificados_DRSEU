@@ -3,7 +3,10 @@ package pe.edu.untels.certificadosdrsu.entities;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "Participaciones")
+@Table(name = "Participaciones", uniqueConstraints = {
+        @UniqueConstraint(name = "uk_participacion_participante_proyecto",
+                columnNames = {"id_participante", "id_proyecto"})
+})
 public class Participacion {
 
     @Id
@@ -15,6 +18,17 @@ public class Participacion {
 
     @Column(name = "id_proyecto", nullable = false)
     private Long idProyecto;
+
+    // Relaciones de solo lectura sobre las mismas columnas FK: permiten joins
+    // (p. ej. ordenar integrantes por apellidos) sin alterar el contrato de los
+    // DTOs existentes, que escriben mediante los campos Long de arriba.
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_participante", insertable = false, updatable = false)
+    private Participante participante;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_proyecto", insertable = false, updatable = false)
+    private Proyecto proyecto;
 
     @Column(name = "tipo_participacion", length = 100)
     private String tipoParticipacion;
@@ -56,6 +70,14 @@ public class Participacion {
 
     public void setIdProyecto(Long idProyecto) {
         this.idProyecto = idProyecto;
+    }
+
+    public Participante getParticipante() {
+        return participante;
+    }
+
+    public Proyecto getProyecto() {
+        return proyecto;
     }
 
     public String getTipoParticipacion() {
