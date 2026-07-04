@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.*;
 import pe.edu.untels.certificadosdrsu.dtos.ParticipanteDTO;
 import pe.edu.untels.certificadosdrsu.dtos.ParticipanteInsertDTO;
 import pe.edu.untels.certificadosdrsu.entities.Participante;
+import pe.edu.untels.certificadosdrsu.entities.Usuario;
+import pe.edu.untels.certificadosdrsu.servicesinterface.IUsuarioService;
 import pe.edu.untels.certificadosdrsu.servicesinterface.ParticipanteService;
 
 import java.util.List;
@@ -20,6 +22,9 @@ public class ParticipanteController {
 
     @Autowired
     private ParticipanteService participanteService;
+
+    @Autowired
+    private IUsuarioService usuarioService;
 
     @GetMapping("/lista")
     public ResponseEntity<List<ParticipanteDTO>> listar() {
@@ -35,10 +40,17 @@ public class ParticipanteController {
     }
 
     @PostMapping("/nuevo")
-    public ResponseEntity<ParticipanteInsertDTO> registrar(@RequestBody ParticipanteInsertDTO dto) {
+    public ResponseEntity<?> registrar(@RequestBody ParticipanteInsertDTO dto) {
         ModelMapper m = new ModelMapper();
         Participante p = m.map(dto, Participante.class);
+        var us = usuarioService.listId(dto.getUsuarioId());
+        if (us.isEmpty()) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
+        }
         Participante guardado = participanteService.insert(p);
+
+        us.get().setIdParticipante(guardado.getIdParticipante());
+        usuarioService.update(us.get());
         ParticipanteInsertDTO responseDTO = m.map(guardado, ParticipanteInsertDTO.class);
         return ResponseEntity.status(HttpStatus.CREATED).body(responseDTO);
     }

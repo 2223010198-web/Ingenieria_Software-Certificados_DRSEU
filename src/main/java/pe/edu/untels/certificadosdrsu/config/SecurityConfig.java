@@ -42,12 +42,13 @@ public class SecurityConfig {
                     "/auth/login",
                     "/auth/recover-password",
                     "/auth/reset-password",
+                    "/public/certificates/verify/**",
                     "/v3/api-docs/**",
                     "/v3/api-docs.yaml",
                     "/swagger-ui/**",
                     "/swagger-ui.html"
                 ).permitAll()
-                .requestMatchers("/seed/admin").permitAll()
+                .requestMatchers("/seed/**").permitAll()
                 .requestMatchers("/users").hasRole("ADMIN")
                 .anyRequest().authenticated()
             )

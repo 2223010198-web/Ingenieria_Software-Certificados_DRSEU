@@ -1,6 +1,9 @@
 package pe.edu.untels.certificadosdrsu.entities;
 
 import jakarta.persistence.*;
+import org.hibernate.annotations.JdbcTypeCode;
+import org.hibernate.type.SqlTypes;
+
 import java.time.LocalDateTime;
 
 @Entity
@@ -24,6 +27,7 @@ public class EnvioCorreo {
     private String emailDestino;
 
     @Column(name = "plantilla_correo", columnDefinition = "JSON")
+    @JdbcTypeCode(SqlTypes.JSON)
     private String plantillaCorreo;
 
     @Column(name = "asunto", length = 200)
