@@ -87,7 +87,13 @@ spring.jpa.database-platform=org.hibernate.dialect.PostgreSQLDialect
 spring.datasource.url=jdbc:postgresql://localhost:5432/certificados_drseu
 spring.datasource.username=tu_usuario
 spring.datasource.password=tu_contraseña
+
+# Solo si tu módulo necesita enviar correo o firmar JWT localmente:
+jwt.secret=una-clave-larga-solo-para-tu-entorno-local
+jwt.expiration-ms=86400000
 ```
+
+> **Cada desarrollador crea y configura su propio `application-local.properties` con su propia base de datos local y sus propias credenciales.** Este archivo está en `.gitignore` (nunca debe commitearse) porque cada quien tiene su propia instancia de PostgreSQL con su propio usuario/contraseña — no existe una base de datos ni credenciales compartidas del equipo. Si accidentalmente lo agregas con `git add -f`, elimínalo del staging antes de commitear.
 
 ### Ejecución
 

@@ -33,6 +33,7 @@ public class Participante {
 
     @Column(length = 20)
     private String celular;
+    private boolean activo;
 
     @Enumerated(EnumType.STRING)
     @Column(length = 50)
