@@ -7,8 +7,8 @@ import java.util.Optional;
 
 public interface ITipoProyectoService {
     public List<TipoProyecto> list();
-    public TipoProyecto insert(TipoProyecto t);
-    public Optional<TipoProyecto> listId(int id);
-    public TipoProyecto update(TipoProyecto t);
-    public void delete(int id);
+    public Optional<TipoProyecto> listId(Long id);
+    public TipoProyecto insert(TipoProyecto tipoproyecto);
+    public TipoProyecto update(TipoProyecto tipoproyecto);
+    public void delete(Long id);
 }

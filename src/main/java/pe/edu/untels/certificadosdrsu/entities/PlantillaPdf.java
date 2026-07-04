@@ -1,51 +1,93 @@
 package pe.edu.untels.certificadosdrsu.entities;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
 import java.time.LocalDateTime;
-import java.util.UUID;
 
 @Entity
 @Table(name = "plantillas_pdf")
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
 public class PlantillaPdf {
 
-  @Id
-  @GeneratedValue
-  @Column(columnDefinition = "uuid")
-  private UUID id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
 
-  @ManyToOne(optional = false)
-  @JoinColumn(name = "tipo_certificado_id", nullable = false)
-  private TipoCertificado tipoCertificado;
+    @Column(name = "nombre_plantilla", length = 100, nullable = false)
+    private String nombrePlantilla;
 
-  @Column(nullable = false)
-  private String nombre;
+    @Column(name = "archivo", length = 255)
+    private String archivo;
 
-  @Column(name = "archivo_path", nullable = false)
-  private String archivoPath;
+    @Column(name = "palabras_clave", columnDefinition = "JSON")
+    private String palabrasClave;
 
-  @Column(name = "metodo_extraccion")
-  private String metodoExtraccion;
+    @Column(name = "activo", nullable = false)
+    private boolean activo = true;
 
-  @Column(name = "texto_extraido", columnDefinition = "TEXT")
-  private String textoExtraido;
+    @Column(name = "created_at", updatable = false)
+    private LocalDateTime createdAt;
 
-  @Column(nullable = false)
-  private Boolean activo = true;
+    @PrePersist
+    protected void onCreate() {
+        createdAt = LocalDateTime.now();
+    }
 
-  @Column(nullable = false)
-  private Integer version = 1;
+    public PlantillaPdf() {
+    }
 
-  @Column(name = "created_at", nullable = false)
-  private LocalDateTime createdAt;
+    public PlantillaPdf(long id, String nombrePlantilla, String archivo, String palabrasClave, boolean activo, LocalDateTime createdAt) {
+        this.id = id;
+        this.nombrePlantilla = nombrePlantilla;
+        this.archivo = archivo;
+        this.palabrasClave = palabrasClave;
+        this.activo = activo;
+        this.createdAt = createdAt;
+    }
 
-  @ManyToOne
-  @JoinColumn(name = "creado_por_id")
-  private Usuario creadoPor;
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public String getNombrePlantilla() {
+        return nombrePlantilla;
+    }
+
+    public void setNombrePlantilla(String nombrePlantilla) {
+        this.nombrePlantilla = nombrePlantilla;
+    }
+
+    public String getArchivo() {
+        return archivo;
+    }
+
+    public void setArchivo(String archivo) {
+        this.archivo = archivo;
+    }
+
+    public String getPalabrasClave() {
+        return palabrasClave;
+    }
+
+    public void setPalabrasClave(String palabrasClave) {
+        this.palabrasClave = palabrasClave;
+    }
+
+    public boolean isActivo() {
+        return activo;
+    }
+
+    public void setActivo(boolean activo) {
+        this.activo = activo;
+    }
+
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
+    }
 }

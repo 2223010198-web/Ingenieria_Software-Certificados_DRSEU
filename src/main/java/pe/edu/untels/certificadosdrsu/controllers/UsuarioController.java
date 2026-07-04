@@ -5,13 +5,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import pe.edu.untels.certificadosdrsu.dtos.UserRequest;
 import pe.edu.untels.certificadosdrsu.dtos.UsuarioDTO;
 import pe.edu.untels.certificadosdrsu.entities.Usuario;
 import pe.edu.untels.certificadosdrsu.servicesinterface.IUsuarioService;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.UUID;
 import java.util.stream.Collectors;
 
 @RestController
@@ -21,10 +22,8 @@ public class UsuarioController {
     private IUsuarioService uS;
 
     @PostMapping
-    public void registrar(@RequestBody UsuarioDTO dto) {
-        ModelMapper m = new ModelMapper();
-        Usuario u = m.map(dto, Usuario.class);
-        uS.insert(u);
+    public ResponseEntity<Usuario> crearUsuario(@RequestBody UserRequest request) {
+        return ResponseEntity.status(HttpStatus.CREATED).body(uS.create(request));
     }
 
     @GetMapping
@@ -36,7 +35,7 @@ public class UsuarioController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<?> buscarPorId(@PathVariable UUID id) {
+    public ResponseEntity<?> buscarPorId(@PathVariable Long id) {
         ModelMapper m = new ModelMapper();
         Optional<Usuario> usuario = uS.listId(id);
 
@@ -50,7 +49,7 @@ public class UsuarioController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<?> modificar(@PathVariable UUID id, @RequestBody UsuarioDTO dto) {
+    public ResponseEntity<?> modificar(@PathVariable Long id, @RequestBody UsuarioDTO dto) {
         ModelMapper m = new ModelMapper();
         Optional<Usuario> existente = uS.listId(id);
         if (existente.isPresent()) {
@@ -66,7 +65,7 @@ public class UsuarioController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<?> eliminar(@PathVariable UUID id) {
+    public ResponseEntity<?> eliminar(@PathVariable Long id) {
         Optional<Usuario> existente = uS.listId(id);
         if (existente.isPresent()) {
             uS.delete(id);

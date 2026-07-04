@@ -25,7 +25,7 @@ public class ParticipanteServiceImplement implements ParticipanteService {
     }
 
     @Override
-    public Optional<Participante> listId(int id) {
+    public Optional<Participante> listId(Long id) {
         return participanteRepository.findById(id);
     }
 
@@ -35,7 +35,7 @@ public class ParticipanteServiceImplement implements ParticipanteService {
     }
 
     @Override
-    public void delete(int id) {
+    public void delete(Long id) {
         participanteRepository.deleteById(id);
     }
 }

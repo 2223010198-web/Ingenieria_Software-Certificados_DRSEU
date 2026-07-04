@@ -44,7 +44,7 @@ public class ParticipanteController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<?> buscarPorId(@PathVariable int id) {
+    public ResponseEntity<?> buscarPorId(@PathVariable Long id) {
         ModelMapper m = new ModelMapper();
         Optional<Participante> participante = participanteService.listId(id);
 
@@ -58,12 +58,12 @@ public class ParticipanteController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<?> modificar(@PathVariable int id, @RequestBody ParticipanteInsertDTO dto) {
+    public ResponseEntity<?> modificar(@PathVariable Long id, @RequestBody ParticipanteInsertDTO dto) {
         ModelMapper m = new ModelMapper();
         Optional<Participante> existente = participanteService.listId(id);
         if (existente.isPresent()) {
             Participante p = m.map(dto, Participante.class);
-            p.setId(id);
+            p.setIdParticipante(id);
             Participante actualizado = participanteService.update(p);
             ParticipanteInsertDTO responseDTO = m.map(actualizado, ParticipanteInsertDTO.class);
             return ResponseEntity.ok(responseDTO);
@@ -74,7 +74,7 @@ public class ParticipanteController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<?> eliminar(@PathVariable int id) {
+    public ResponseEntity<?> eliminar(@PathVariable Long id) {
         Optional<Participante> existente = participanteService.listId(id);
         if (existente.isPresent()) {
             participanteService.delete(id);

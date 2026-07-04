@@ -25,7 +25,7 @@ public class TipoProyectoServiceImplement implements ITipoProyectoService {
     }
 
     @Override
-    public Optional<TipoProyecto> listId(int id) {
+    public Optional<TipoProyecto> listId(Long id) {
         return repository.findById(id);
     }
 
@@ -35,7 +35,7 @@ public class TipoProyectoServiceImplement implements ITipoProyectoService {
     }
 
     @Override
-    public void delete(int id) {
+    public void delete(Long id) {
         repository.deleteById(id);
     }
 }

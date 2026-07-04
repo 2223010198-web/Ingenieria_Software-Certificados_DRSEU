@@ -5,6 +5,6 @@ import org.springframework.stereotype.Repository;
 import pe.edu.untels.certificadosdrsu.entities.Participante;
 
 @Repository
-public interface ParticipanteRepository extends JpaRepository<Participante, Integer> {
+public interface ParticipanteRepository extends JpaRepository<Participante, Long> {
     
 }

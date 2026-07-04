@@ -4,8 +4,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 import pe.edu.untels.certificadosdrsu.entities.PlantillaPdf;
 
-import java.util.UUID;
-
 @Repository
-public interface IPlantillaPdfRepository extends JpaRepository<PlantillaPdf, UUID> {
+public interface IPlantillaPdfRepository extends JpaRepository<PlantillaPdf, Long> {
 }
