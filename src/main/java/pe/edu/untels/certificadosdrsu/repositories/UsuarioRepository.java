@@ -9,5 +9,6 @@ import pe.edu.untels.certificadosdrsu.entities.Usuario;
 @Repository
 public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
     Optional<Usuario> findByUsername(String username);
+    Optional<Usuario> findByIdParticipante(Long idParticipante);
     boolean existsByUsername(String username);
 }
