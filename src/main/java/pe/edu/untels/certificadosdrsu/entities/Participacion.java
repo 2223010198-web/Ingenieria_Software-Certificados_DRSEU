@@ -10,13 +10,13 @@ public class Participacion {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "id_participante", nullable = false, unique = true)
+    @Column(name = "id_participante", nullable = false)
     private Long idParticipante;
 
-    @Column(name = "id_proyecto", nullable = false, unique = true)
+    @Column(name = "id_proyecto", nullable = false)
     private Long idProyecto;
 
-    @Column(name = "tipo_participacion", length = 100, unique = true)
+    @Column(name = "tipo_participacion", length = 100)
     private String tipoParticipacion;
 
     @Column(name = "descripcion_participante", length = 255)
@@ -25,7 +25,8 @@ public class Participacion {
     public Participacion() {
     }
 
-    public Participacion(Long id, Long idParticipante, Long idProyecto, String tipoParticipacion, String descripcionParticipante) {
+    public Participacion(Long id, Long idParticipante, Long idProyecto, String tipoParticipacion,
+            String descripcionParticipante) {
         this.id = id;
         this.idParticipante = idParticipante;
         this.idProyecto = idProyecto;
