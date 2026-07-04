@@ -9,10 +9,12 @@ import pe.edu.untels.certificadosdrsu.dtos.ProyectoDto;
 import pe.edu.untels.certificadosdrsu.dtos.ProyectoInsertDto;
 import pe.edu.untels.certificadosdrsu.entities.Proyecto;
 import pe.edu.untels.certificadosdrsu.entities.Usuario;
+import pe.edu.untels.certificadosdrsu.servicesinterface.IProyectoIntegranteService;
 import pe.edu.untels.certificadosdrsu.servicesinterface.IProyectoService;
 import pe.edu.untels.certificadosdrsu.servicesinterface.IUsuarioService;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 @RestController
@@ -25,12 +27,21 @@ public class ProyectoController {
     @Autowired
     private IUsuarioService usuarioService;
 
+    @Autowired
+    private IProyectoIntegranteService integranteService;
+
     private final ModelMapper m = new ModelMapper();
 
     @GetMapping("/lista")
     public ResponseEntity<List<ProyectoDto>> listar() {
+        Map<Long, Long> conteoIntegrantes = integranteService.contarIntegrantesPorProyecto();
+
         List<ProyectoDto> listaProyectos = proyectoService.list()
-                .stream().map(p -> m.map(p, ProyectoDto.class))
+                .stream().map(p -> {
+                    ProyectoDto dto = m.map(p, ProyectoDto.class);
+                    dto.setCantidadIntegrantes(conteoIntegrantes.getOrDefault(p.getIdProyecto(), 0L));
+                    return dto;
+                })
                 .toList();
 
         return ResponseEntity.ok(listaProyectos);
