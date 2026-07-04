@@ -23,6 +23,8 @@ public interface ParticipanteRepository extends JpaRepository<Participante, Long
 
     boolean existsByEmailIgnoreCaseAndIdParticipanteNot(String email, Long idParticipante);
 
+    List<Participante> findByNombresContainingIgnoreCaseOrApellidosContainingIgnoreCase(String nombres, String apellidos);
+
     @Query("""
             SELECT p FROM Participante p
             WHERE (:includeInactive = true OR p.activo = true)
