@@ -3,10 +3,13 @@ package pe.edu.untels.certificadosdrsu.entities;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "Participaciones", uniqueConstraints = {
-        @UniqueConstraint(name = "uk_participacion_participante_proyecto",
-                columnNames = {"id_participante", "id_proyecto"})
-})
+@Table(
+        name = "Participaciones",
+        uniqueConstraints = @UniqueConstraint(
+                name = "uk_participacion_proyecto_participante",
+                columnNames = {"id_proyecto", "id_participante"}
+        )
+)
 public class Participacion {
 
     @Id
