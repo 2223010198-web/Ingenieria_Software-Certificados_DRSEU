@@ -25,6 +25,7 @@ public class ProyectoServiceImplement implements IProyectoService {
 
   @Override
   public Proyecto insert(Proyecto p) {
+    p.setEstado(EstadoProyecto.EN_PROCESO);
     return proyectoRepository.save(p);
   }
 

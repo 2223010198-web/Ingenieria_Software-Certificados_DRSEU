@@ -3,15 +3,31 @@ package pe.edu.untels.certificadosdrsu.dtos;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
-import lombok.Data;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import pe.edu.untels.certificadosdrsu.entities.TipoProyecto;
 
 
 public class ProyectoInsertDto {
 
+    @NotBlank(message = "El título es obligatorio")
     private String titulo;
+
     private String descripcion;
     private String numeroRegistro;
+
+    @NotBlank(message = "El tipo de evento es obligatorio")
+    private String tipoEvento;
+
+    @NotBlank(message = "La modalidad es obligatoria")
+    private String modalidad;
+
+    @NotNull(message = "La fecha de inicio es obligatoria")
+    private LocalDate fechaInicio;
+
+    @NotNull(message = "La fecha de fin es obligatoria")
+    private LocalDate fechaFin;
+
     private String documentoAprobacion;
     private LocalDate fechaAprobacion;
     private String estado;
@@ -43,6 +59,38 @@ public class ProyectoInsertDto {
 
     public void setNumeroRegistro(String numeroRegistro) {
         this.numeroRegistro = numeroRegistro;
+    }
+
+    public String getTipoEvento() {
+        return tipoEvento;
+    }
+
+    public void setTipoEvento(String tipoEvento) {
+        this.tipoEvento = tipoEvento;
+    }
+
+    public String getModalidad() {
+        return modalidad;
+    }
+
+    public void setModalidad(String modalidad) {
+        this.modalidad = modalidad;
+    }
+
+    public LocalDate getFechaInicio() {
+        return fechaInicio;
+    }
+
+    public void setFechaInicio(LocalDate fechaInicio) {
+        this.fechaInicio = fechaInicio;
+    }
+
+    public LocalDate getFechaFin() {
+        return fechaFin;
+    }
+
+    public void setFechaFin(LocalDate fechaFin) {
+        this.fechaFin = fechaFin;
     }
 
     public String getDocumentoAprobacion() {

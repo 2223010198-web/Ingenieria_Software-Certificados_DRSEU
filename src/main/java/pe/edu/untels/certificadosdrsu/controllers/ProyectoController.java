@@ -7,6 +7,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.untels.certificadosdrsu.dtos.ProyectoDto;
 import pe.edu.untels.certificadosdrsu.dtos.ProyectoInsertDto;
@@ -56,7 +57,7 @@ public class ProyectoController {
     }
 
     @PostMapping("/nuevo")
-    public ResponseEntity<?> registrar(@RequestBody ProyectoInsertDto dto) {
+    public ResponseEntity<?> registrar(@Valid @RequestBody ProyectoInsertDto dto) {
         Proyecto p = m.map(dto, Proyecto.class);
 
         Optional<Usuario> creador = usuarioService.listId(dto.getIdCreadoPor());
