@@ -11,4 +11,7 @@ public interface ParticipacionService {
     public Optional<Participacion> listId(Long id);
     public Participacion update(Participacion p);
     public void delete(Long id);
+    public List<Participacion> listByProyecto(Long idProyecto);
+    public boolean existeParticipacion(Long idProyecto, Long idParticipante);
+    public long contarPorProyecto(Long idProyecto);
 }

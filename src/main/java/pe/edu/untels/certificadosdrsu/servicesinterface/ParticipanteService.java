@@ -11,4 +11,5 @@ public interface ParticipanteService {
     public Optional<Participante> listId(Long id);
     public Participante update(Participante p);
     public void delete(Long id);
+    public List<Participante> buscarSugerencias(String q);
 }

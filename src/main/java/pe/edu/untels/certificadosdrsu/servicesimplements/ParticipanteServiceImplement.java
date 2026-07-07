@@ -1,6 +1,7 @@
 package pe.edu.untels.certificadosdrsu.servicesimplements;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import pe.edu.untels.certificadosdrsu.entities.Participante;
 import pe.edu.untels.certificadosdrsu.repositories.ParticipanteRepository;
@@ -37,5 +38,10 @@ public class ParticipanteServiceImplement implements ParticipanteService {
     @Override
     public void delete(Long id) {
         participanteRepository.deleteById(id);
+    }
+
+    @Override
+    public List<Participante> buscarSugerencias(String q) {
+        return participanteRepository.buscarSugerencias(q, PageRequest.of(0, 10));
     }
 }

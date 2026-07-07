@@ -38,4 +38,19 @@ public class ParticipacionServiceImplement implements ParticipacionService {
     public void delete(Long id) {
         participacionRepository.deleteById(id);
     }
+
+    @Override
+    public List<Participacion> listByProyecto(Long idProyecto) {
+        return participacionRepository.findByIdProyecto(idProyecto);
+    }
+
+    @Override
+    public boolean existeParticipacion(Long idProyecto, Long idParticipante) {
+        return participacionRepository.existsByIdProyectoAndIdParticipante(idProyecto, idParticipante);
+    }
+
+    @Override
+    public long contarPorProyecto(Long idProyecto) {
+        return participacionRepository.countByIdProyecto(idProyecto);
+    }
 }
